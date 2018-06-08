@@ -1,0 +1,22 @@
+<?php
+
+if (\think\facade\Session::has('flash_notification')){
+    $msg = session('flash_notification');
+?>
+
+<div class="alert {$msg['type']} alert-dismissable message-close">
+    <button type="button" class="{$msg['is_close']}" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>{$msg['header']}</strong>
+    <span class="alert-link"> {$msg['message']} </span>
+</div>
+<?php } ?>
+{:resource()->js([
+    'static/plugins/jquery.min.js',
+])}
+<script>
+    $(function () {
+        setTimeout(function () {
+            $('.message-close').delay(1000).hide();
+        },2000);
+    });
+</script>

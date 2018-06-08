@@ -1,0 +1,118 @@
+{:resource()->css([
+'static/plugins/bootstrap-fileinput/bootstrap-fileinput.css',
+])}
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            {include file="message/message" /}
+            <div class="portlet-body form">
+                <!-- BEGIN FORM-->
+                <form action="{:url('admin/administrator/edit',['id'=>$admins['id']])}" method="post" class="horizontal-form" pjax-container>
+                    {:token()}
+                    <div class="form-body">
+<!--                        <input type="hidden" name="id" value="{$admins['id']}">-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label"><span class="required">*</span>  用户名</label>
+                                    <input type="text" name="name" value="{$admins['name'] | default=''}" class="form-control" placeholder="用户名">
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">昵称</label>
+                                    <input type="text" name="nickname" value="{$admins['nickname'] | default=''}" class="form-control" placeholder="昵称">
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label"><span class="required">*</span>  密码</label>
+                                    <input type="password" name="password" value="{$admins['password'] | default=''}" class="form-control" placeholder="密码">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label"><span class="required">*</span>  确认密码</label>
+                                    <input type="password" name="confirm_password" value="{$admins['password'] | default=''}" class="form-control" placeholder="确认密码">
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label"><span class="required">*</span>  邮箱</label>
+                                    <input type="text" name="email" value="{$admins['email'] | default=''}" class="form-control" placeholder="邮箱">
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">自我介绍</label>
+                                    <input type="text" name="desc" value="{$admins['desc'] | default=''}" class="form-control" placeholder="自我介绍">
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                        <!--/row-->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label"><span class="required">*</span>  所属角色</label>
+                                    <label class="mt-checkbox mt-checkbox-outline">
+                                        <input type="checkbox" id="checkRole">
+                                        <span></span>
+                                    </label>
+                                    <div class="mt-checkbox-inline mt-checkbox-list role-list">
+                                        {foreach $roles as $key=>$role}
+                                        <label class="mt-checkbox mt-checkbox-outline"> {$role['name']}
+                                            <input type="checkbox" value="{$role['id']}" name="role_ids[]" <?= in_array($role['id'],$adminRole) ? "checked" : ''; ?>>
+                                            <span></span>
+                                        </label>
+                                        {/foreach}
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                            <label class="control-label col-md-6">头像</label>
+                            <div class="col-md-5">
+                                <div class="form-group">
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                            <img src="<?php echo $admins['avatar'] ? img_full_url($admins['avatar']) : 'http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image' ?>" alt=""> </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
+                                        <div>
+                                                            <span class="btn default btn-file">
+                                                                <span class="fileinput-new"> Select image </span>
+                                                                <span class="fileinput-exists"> Change </span>
+                                                                <input type="file" name="avatar"> </span>
+                                            <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> Remove </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/span-->
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="reset" class="btn yellow mt-ladda-btn ladda-button btn-circle">重置</button>
+                        <button type="submit" data-loading-text="Loading..." class="btn purple mt-ladda-btn ladda-button mt-progress-demo btn-circle">
+                            <i class="fa fa-check"></i> 更新</button>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+        </div>
+    </div>
+</div>
+
+{:resource()->js([
+'static/plugins/jquery.min.js',
+'static/plugins/bootstrap/js/bootstrap.min.js',
+'static/plugins/bootstrap-fileinput/bootstrap-fileinput.js',
+])}

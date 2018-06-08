@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            {include file="message/message" /}
+            <div class="portlet-body form">
+                <!-- BEGIN FORM-->
+                <form action="{:url('admin/role/edit',['id'=>$roleInfo['id']])}" method="post" class="horizontal-form" pjax-container>
+                    {:token()}
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label"><span class="required">*</span>  名称</label>
+                                    <input type="text" name="name" value="{$roleInfo['name']}" class="form-control" placeholder="名称">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">父级角色</label>
+                                    <select class="form-control" name="parent_id">
+                                        <option value="0">顶级角色</option>
+                                        {foreach $nodes as $node}
+                                        <option value="{$node['id']}" <?= $roleInfo['parent_id']==$node['id'] ? "selected" : ''; ?>>{:str_repeat('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;',$node['level']).$node['name']}</option>
+                                        {/foreach}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">排序</label>
+                                    <input type="text" name="sort" value="{$roleInfo['sort']|default=''}" class="form-control" placeholder="排序">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">描述</label>
+                                    <textarea name="desc" id="" class="form-control" cols="10" rows="2" placeholder="描述">{$roleInfo['desc'] |default=''}</textarea>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <div class="mt-checkbox-inline mt-checkbox-list">
+                                        <label class="control-label">选择所属权限或节点</label>
+                                        <label class="mt-checkbox mt-checkbox-outline">
+                                            <input type="checkbox" id="checkRole">
+                                            <span></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="form-group">
+                                    <div class="mt-checkbox-inline mt-checkbox-list role-list">
+                                        {:$menus}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="reset" class="btn yellow mt-ladda-btn ladda-button btn-circle">重置</button>
+                        <button type="submit" data-loading-text="Loading..." class="btn purple mt-ladda-btn ladda-button mt-progress-demo btn-circle">
+                            <i class="fa fa-check"></i> 更新</button>
+                    </div>
+                </form>
+                <!-- END FORM-->
+            </div>
+        </div>
+    </div>
+</div>

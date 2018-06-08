@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Henry 后台登陆</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
+        <meta content="" name="description" />
+        <meta content="" name="author" />
+
+        <!-- BEGIN GLOBAL MANDATORY STYLES -->
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+        <link rel="shortcut icon" href="favicon.ico" /> </head>
+        {:resource()->css([
+            'static/plugins/font-awesome/css/font-awesome.min.css',
+            'static/plugins/simple-line-icons/simple-line-icons.min.css',
+            'static/plugins/bootstrap/css/bootstrap.min.css',
+            'static/plugins/bootstrap-switch/css/bootstrap-switch.min.css',
+            'static/plugins/select2/css/select2.min.css',
+            'static/plugins/select2/css/select2-bootstrap.min.css',
+            'static/css/global/components.css',
+            'static/css/global/plugins.min.css',
+            'static/common/pages/css/login-2.min.css',
+        ])}
+    <!-- END HEAD -->
+
+    <body class=" login">
+    {__NOLAYOUT__}
+        <!-- BEGIN LOGO -->
+        <div class="logo">
+            <a href="javascript:void (0);">
+                <h3>权限节点控制Demo</h3>
+                <!--<img src="http://tp5.test/static/common/pages/img/logo-big-white.png" style="height: 17px;" alt="" /> -->
+            </a>
+        </div>
+        <!-- END LOGO -->
+        <!-- BEGIN LOGIN -->
+        <div class="content">
+            <!-- BEGIN LOGIN FORM -->
+            <form class="login-form" action="{:url('admin.postLogin')}" method="post">
+                {:token()}
+                {include file="message/message" /}
+                <div class="alert alert-danger display-hide">
+                    <button class="close" data-close="alert"></button>
+                    <strong>Error! </strong>
+                    <span class="alert-link"> 账号或密码不能为空. </span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">用户名</label>
+                    <input class="form-control form-control-solid placeholder-no-fix" type="text" autocomplete="off" placeholder="用户名" name="name" /> </div>
+                <div class="form-group">
+                    <label class="control-label visible-ie8 visible-ie9">密码</label>
+                    <input class="form-control form-control-solid placeholder-no-fix" type="password" autocomplete="off" placeholder="密码" name="password" /> </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn red btn-block uppercase">登陆</button>
+                </div>
+                <div class="form-actions">
+                    <div class="pull-left">
+                        <label class="rememberme mt-checkbox mt-checkbox-outline">
+                            <input type="checkbox" name="remember" value="1" /> 记住我
+                            <span></span>
+                        </label>
+                    </div>
+<!--                    <div class="pull-right forget-password-block">-->
+<!--                        <a href="javascript:;" id="forget-password" class="forget-password">忘记密码?</a>-->
+<!--                    </div>-->
+                </div>
+            </form>
+        </div>
+        <div class="copyright hide"> 2014 © Metronic. Admin Dashboard Template. </div>
+
+        {:resource()->js([
+                'static/plugins/respond.min.js',
+                'static/plugins/excanvas.min.js',
+                'static/plugins/jquery.min.js',
+                'static/plugins/bootstrap/js/bootstrap.min.js',
+                'static/plugins/js.cookie.min.js',
+                'static/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js',
+                'static/plugins/jquery-slimscroll/jquery.slimscroll.min.js',
+                'static/plugins/jquery.blockui.min.js',
+                'static/plugins/bootstrap-switch/js/bootstrap-switch.min.js',
+                'static/plugins/jquery-validation/js/jquery.validate.min.js',
+                'static/plugins/jquery-validation/js/additional-methods.min.js',
+                'static/plugins/select2/js/select2.full.min.js',
+                'static/plugins/select2/js/select2.full.min.js',
+                'static/common/pages/scripts/login.min.js',
+        ])}
+    </body>
+    <script>
+        $(function () {
+            $('.display-hide').delay(3000).hide(0);
+        });
+    </script>
+</html>

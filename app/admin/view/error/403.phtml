@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>403 Page </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="403没有权限" name="description" />
+    <meta content="henry" name="author" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    {:resource()->css([
+        'static/plugins/font-awesome/css/font-awesome.min.css',
+        'static/plugins/simple-line-icons/simple-line-icons.min.css',
+        'static/plugins/bootstrap/css/bootstrap.min.css',
+        'static/plugins/bootstrap-switch/css/bootstrap-switch.min.css',
+        'static/css/global/components.min.css',
+        'static/css/global/plugins.min.css',
+        'static/common/pages/css/error.min.css',
+    ])}
+    <link rel="shortcut icon" href="favicon.ico" /> </head>
+<!-- END HEAD -->
+
+<body class=" page-500-full-page">
+{__NOLAYOUT__}
+<div class="row">
+    <div class="col-md-12 page-500">
+        <div class=" number font-red"> 403 Forbidden</div>
+        <div class=" details">
+            <h3>Oops! Something went wrong.</h3>
+            <p>您没有权限访问该页面!
+                <br/> </p>
+            <p>
+                <a href="javascript:void (0)" class="btn red btn-outline" onClick="javascript:history.back()">返回上一页 </a>
+                <br> </p>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+{:resource()->css([
+'static/plugins/bootstrap-fileinput/bootstrap-fileinput.css',
+])}
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN PROFILE SIDEBAR -->
+<!--        <div class="profile-sidebar">-->
+<!--            <!-- PORTLET MAIN -->
+<!--            <div class="portlet light profile-sidebar-portlet ">-->
+<!--                <!-- SIDEBAR USERPIC -->
+<!--                <div class="profile-userpic">-->
+<!--                    <img src="{:img_full_url($adminer['avatar'])}" class="img-responsive" alt=""> </div>-->
+<!--            </div>-->
+<!--        </div>-->
+        <!-- END BEGIN PROFILE SIDEBAR -->
+        <!-- BEGIN PROFILE CONTENT -->
+        <div class="profile-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="portlet light ">
+                        <div class="portlet-title tabbable-line">
+                            <div class="caption caption-md">
+                                <i class="icon-globe theme-font hide"></i>
+                                <span class="caption-subject font-blue-madison bold uppercase">个人账户资料</span>
+                            </div>
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#tab_1_1" data-toggle="tab">个人基本信息</a>
+                                </li>
+                                <li>
+                                    <a href="#tab_1_2" data-toggle="tab">个人头像</a>
+                                </li>
+                                <li>
+                                    <a href="#tab_1_3" data-toggle="tab">修改密码</a>
+                                </li>
+                            </ul>
+                        </div>
+                        {include file="message/message" /}
+                        <div class="portlet-body">
+                            <form role="form" action="{:url('admin/administrator/account')}" method="post" pjax-container>
+                            <div class="tab-content">
+                                <!-- PERSONAL INFO TAB -->
+                                <div class="tab-pane active" id="tab_1_1">
+                                        <div class="form-group">
+                                            <label class="control-label">用户名</label>
+                                            <input type="text" name="name" placeholder="用户名" value="{$adminer['name']}" class="form-control" /> </div>
+                                        <div class="form-group">
+                                            <label class="control-label">昵称</label>
+                                            <input type="text" placeholder="昵称" name="nickname" value="{$adminer['nickname']}" class="form-control" /> </div>
+                                        <div class="form-group">
+                                            <label class="control-label">邮箱</label>
+                                            <input type="text" placeholder="test@xx.com" value="{$adminer['email']}" name="email" class="form-control" /> </div>
+<!--                                        <div class="form-group">-->
+<!--                                            <label class="control-label">个人简介</label>-->
+<!--                                            <textarea class="form-control" name="desc" value="{$adminer['desc']}" rows="3" placeholder="个人简介"></textarea>-->
+<!--                                        </div>-->
+                                </div>
+                                <!-- END PERSONAL INFO TAB -->
+                                <!-- CHANGE AVATAR TAB -->
+                                <div class="tab-pane" id="tab_1_2">
+                                        <div class="form-group">
+                                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                                    <img src="<?= $adminer['avatar'] ? img_full_url($adminer['avatar']) : 'http://www.placehold.it/200x150/EFEFEF/AAAAAA&amp;text=no+image' ?>" alt=""> </div>
+                                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"> </div>
+                                                <div>
+                                                            <span class="btn default btn-file">
+                                                                <span class="fileinput-new"> 选择头像 </span>
+                                                                <span class="fileinput-exists"> 更换 </span>
+                                                                <input type="file" name="avatar"> </span>
+                                                    <a href="javascript:;" class="btn red fileinput-exists" data-dismiss="fileinput"> 移除 </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                                <!-- END CHANGE AVATAR TAB -->
+                                <!-- CHANGE PASSWORD TAB -->
+                                <div class="tab-pane" id="tab_1_3">
+                                        <div class="form-group">
+                                            <label class="control-label">当前密码</label>
+                                            <input type="password" class="form-control" value="{$adminer['password']}" disabled /> </div>
+                                        <div class="form-group">
+                                            <label class="control-label">新密码</label>
+                                            <input type="password" name="password" class="form-control" /> </div>
+                                        <div class="form-group">
+                                            <label class="control-label">确认密码</label>
+                                            <input type="password" name="confirm_password" class="form-control" /> </div>
+                                </div>
+                                <div class="margin-top-10">
+                                    <input type="submit" class="btn green" value="更新 ">
+                                </div>
+                                <!-- END CHANGE PASSWORD TAB -->
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END PROFILE CONTENT -->
+    </div>
+</div>
+{:resource()->js([
+    'static/plugins/jquery.min.js',
+    'static/plugins/bootstrap/js/bootstrap.min.js',
+    'static/plugins/bootstrap-fileinput/bootstrap-fileinput.js',
+])}

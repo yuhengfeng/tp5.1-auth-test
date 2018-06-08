@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--
+Template Name: Metronic - Responsive Admin Dashboard Template build with Twitter Bootstrap 3.3.6
+Version: 4.5.6
+Author: KeenThemes
+Website: http://www.keenthemes.com/
+Contact: support@keenthemes.com
+Follow: www.twitter.com/keenthemes
+Dribbble: www.dribbble.com/keenthemes
+Like: www.facebook.com/keenthemes
+Purchase: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+Renew Support: http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes
+License: You must have a valid license purchased only from themeforest(the above link) in order to legally use the theme for your project.
+-->
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+    <meta charset="utf-8" />
+    <title>Metronic | User Lock Screen 1</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    {:resource()->css([
+        'static/plugins/font-awesome/css/font-awesome.min.css',
+        'static/plugins/simple-line-icons/simple-line-icons.min.css',
+        'static/plugins/bootstrap/css/bootstrap.min.css',
+        'static/plugins/bootstrap-switch/css/bootstrap-switch.min.css',
+        'static/css/global/components.min.css',
+        'static/css/global/plugins.min.css',
+        'static/common/pages/css/lock.min.css',
+    ])}
+
+</head>
+
+<body class="">
+{__NOLAYOUT__}
+<div class="page-lock">
+    <div class="page-logo">
+        <a class="brand" href="index.html">
+            <img src="{:img_full_url('static/common/pages/img/logo-big.png')}" alt="logo" /> </a>
+    </div>
+    <div class="page-body">
+        <div class="lock-head"> Locked </div>
+        <div class="lock-body">
+            <div class="pull-left lock-avatar-block">
+                <img src="{:img_full_url('static/common/pages/media/profile/profile.jpg')}" class="lock-avatar"> </div>
+            <form class="lock-form pull-left" action="" method="post">
+                <h4>Amanda Smith</h4>
+                <div class="form-group">
+                    <input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" /> </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn red uppercase">Login</button>
+                </div>
+            </form>
+        </div>
+        <div class="lock-bottom">
+            <a href="">Not Amanda Smith?</a>
+        </div>
+    </div>
+    <div class="page-footer-custom"> 2014 &copy; Metronic. Admin Dashboard Template. </div>
+</div>
+
+{:resource()->js([
+    'static/plugins/respond.min.js',
+    'static/plugins/excanvas.min.js',
+    'static/plugins/jquery.min.js',
+    'static/plugins/bootstrap/js/bootstrap.min.js',
+    'static/plugins/js.cookie.min.js',
+    'static/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js',
+    'static/plugins/jquery-slimscroll/jquery.slimscroll.min.js',
+    'static/plugins/jquery.blockui.min.js',
+    'static/plugins/bootstrap-switch/js/bootstrap-switch.min.js',
+    'static/plugins/js.cookie.min.js',
+    'static/plugins/js.cookie.min.js',
+    'static/js/global/app.min.js',
+    'static/js/global/lock.min.js'
+])}
+</body>
+
+</html>

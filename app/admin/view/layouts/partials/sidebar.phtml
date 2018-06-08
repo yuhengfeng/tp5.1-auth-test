@@ -1,0 +1,27 @@
+<div class="page-container">
+    <div class="page-sidebar-wrapper">
+        <div class="page-sidebar navbar-collapse collapse">
+            <ul class="page-sidebar-menu  page-header-fixed " data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200" style="padding-top: 20px">
+                <li class="sidebar-search-wrapper">
+                    <!-- 搜索 -->
+                    <form class="sidebar-search sidebar-search-bordered sidebar-search-solid" action="" method="POST">
+                        <a href="javascript:;" class="remove">
+                            <i class="icon-close"></i>
+                        </a>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <span class="input-group-btn">
+                                        <a href="javascript:;" class="btn submit">
+                                            <i class="icon-magnifier"></i>
+                                        </a>
+                                    </span>
+                        </div>
+                    </form>
+                    <!-- END 搜索 -->
+                </li>
+                {$menuView | raw}
+            </ul>
+        </div>
+    </div>
+    <div class="page-content-wrapper">
+        <div class="page-content" id="pjax-container">
