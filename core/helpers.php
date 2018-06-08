@@ -27,7 +27,7 @@ if (!function_exists('img_full_url'))
 {
     function img_full_url($imgPath)
     {
-        return (config('resource.img_url')==null) ? request()->domain().'/'.$imgPath : config('resource.img_url').'/'.$imgPath;
+        return (config('resource.img_url')==null) ? request()->domain().$imgPath : config('resource.img_url').'/'.$imgPath;
     }
 }
 
