@@ -24,7 +24,7 @@ return [
     // 应用Trace
     'app_trace'              => false,
     // 是否支持多模块
-    'app_multi_module'       => env('APP_MULTI_MODULE',''),
+    'app_multi_module'       => env('APP_MULTI_MODULE','true'),
     // 入口自动绑定模块
     'auto_bind_module'       => false,
     // 注册的根命名空间
